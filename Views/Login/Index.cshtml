@@ -1,42 +1,42 @@
-﻿
+﻿@model OnlineBookShop.Models.users
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 
+
 @section css{
-    <script src="~/Content/js/bootstrap.js"></script>
     <link rel="stylesheet" href="~/Content/css/login.css" type="text/css">
-    <!--owl slider stylesheet -->
-    <link rel="stylesheet" type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-    <!-- nice select  -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css"
-          integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ=="
-          crossorigin="anonymous" />
 }
 <div id="content">
     <div id="slogan">
         <img src="~/Content/images/signin.jpg" alt="ABC BOOK SHOP">
     </div>
-    <div id="login">
+    <div id="login" style="background: #ffffff !important;">
+        @if (@ViewBag.Message != null)
+        {
+            <div style="color: red; text-align: center;">@ViewBag.Message</div>
+        }
         <div class="login-container">
-            <h1>Đăng nhập</h1>            
-            @using(Html.BeginForm("Login"))
-            <form class="login-form" method="post" action="">
+            <h1>Đăng nhập</h1>
+            @using (Html.BeginForm("LoginUser", "Login", FormMethod.Post, new { @class = "login-form" }))
+            {
+                @Html.ValidationSummary(true);
+
                 <div class="login-box" id="email-container">
                     <label for="email">
                         Email:
-                        <input class="login-box-input" id="email" type="text" size="60"
+                        <input class="login-box-input" id="email" type="text" name="email" size="70"
                                placeholder="Nhập email của bạn">
+                        @ViewData["Loi1"]
                     </label>
                 </div>
                 <div class="login-box" id="password-container">
                     <label for="password">
                         Mật khẩu
-                        <input class="login-box-input" id="password" type="password" size="60"
+                        <input class="login-box-input" id="password" type="password" name="password" size="70"
                                placeholder="Nhập password của bạn">
+                        @ViewData["Loi1"]
                     </label>
                 </div>
                 <div class="forget-password-container">
@@ -47,8 +47,9 @@
                         Đăng nhập
                     </button>
                 </div>
-            </form>
-
+            }
+            @*<form class="login-form" method="post" action="">
+                </form>*@
         </div>
         <div class="login-method-container">
             <h5>Hoặc tiếp tục với</h5>

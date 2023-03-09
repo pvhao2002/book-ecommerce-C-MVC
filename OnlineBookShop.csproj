@@ -150,12 +150,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Book.cs" />
     <Compile Include="Models\books.cs" />
     <Compile Include="Models\DBContextBook.cs" />
     <Compile Include="Models\orders.cs" />
     <Compile Include="Models\order_item.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Models\users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
