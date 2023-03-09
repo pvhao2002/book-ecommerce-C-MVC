@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+@section css{
+    <script src="~/Content/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="~/Content/css/login.css" type="text/css">
+    <!--owl slider stylesheet -->
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <!-- nice select  -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css"
+          integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ=="
+          crossorigin="anonymous" />
+}
+<div id="content">
+    <div id="slogan">
+        <img src="~/Content/images/signin.jpg" alt="ABC BOOK SHOP">
+    </div>
+    <div id="login">
+        <div class="login-container">
+            <h1>Đăng nhập</h1>            
+            @using(Html.BeginForm("Login"))
+            <form class="login-form" method="post" action="">
+                <div class="login-box" id="email-container">
+                    <label for="email">
+                        Email:
+                        <input class="login-box-input" id="email" type="text" size="60"
+                               placeholder="Nhập email của bạn">
+                    </label>
+                </div>
+                <div class="login-box" id="password-container">
+                    <label for="password">
+                        Mật khẩu
+                        <input class="login-box-input" id="password" type="password" size="60"
+                               placeholder="Nhập password của bạn">
+                    </label>
+                </div>
+                <div class="forget-password-container">
+                    <button id="forget-password-button" href="#" style="margin-left: 400px; margin-right: 50px;">Bạn quên mật khẩu?</button>
+                </div>
+                <div class="login-button-container">
+                    <button type="submit" class="login-button">
+                        Đăng nhập
+                    </button>
+                </div>
+            </form>
+
+        </div>
+        <div class="login-method-container">
+            <h5>Hoặc tiếp tục với</h5>
+            <div class="login-method" id="facebook-method">
+                <button id="facebook-button" type="submit">
+                    <span class="button-wrapper">
+                        <i class="fa fa-facebook"></i>
+                        Đăng nhập bằng Facebook
+                    </span>
+                </button>
+            </div>
+            <div class="login-method" id="gmail-method">
+                <button id="gmail-button" type="submit" onclick="return false;">
+                    <span class="button-wrapper">
+                        <img class="gmail-icon" src="~/Content/images/gmail.jpg">
+                        Đăng nhập bằng Gmail
+                    </span>
+
+                </button>
+            </div>
+        </div>
+        <div class="register-container">
+            <p>Bạn chưa có tài khoản?</p>
+            <a href="#">Đăng ký</a>
+        </div>
+    </div>
+</div>

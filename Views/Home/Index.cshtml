@@ -1,0 +1,107 @@
+﻿@model IEnumerable<OnlineBookShop.Models.books>
+
+
+@{
+    ViewBag.Title = "Trang Chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<section class="food_section layout_padding-bottom">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                Danh sách sản phẩm
+            </h2>
+        </div>
+
+        <div class="filters-content">
+            <div class="row grid">
+                @foreach (var item in Model)
+                {
+                    <div class="col-sm-6 col-lg-4 all pizza">
+
+                        <div class="box">
+                            <div>
+                                <div class="img-box">
+                                    <img src="@item.image_url" alt="ABC Online Shop">
+                                </div>
+                                <div class="detail-box">
+                                    <h6>
+                                        @item.title
+                                    </h6>
+                                    <div class="options">
+                                        <h6>
+                                            @{
+                                                var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+                                            }
+                                            @String.Format(info,"{0:C}", item.price)
+                                        </h6>
+                                        <a href="">
+                                            <i class="fa fa-shopping-cart" style="color: #fff; font-size: 20px;" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- end food section -->
+<!-- client section -->
+
+<section class="client_section layout_padding-bottom">
+    <div class="container">
+        <div class="heading_container heading_center psudo_white_primary mb_45">
+            <h2>
+                Reviews từ khách hàng
+            </h2>
+        </div>
+        <div class="carousel-wrap row ">
+            <div class="owl-carousel client_owl-carousel">
+                <div class="item">
+                    <div class="box">
+                        <div class="detail-box">
+                            <p>
+                                Rất nhiều sách đa dạng về các lĩnh vực !!!
+                            </p>
+                            <h6>
+                                Moana Michell
+                            </h6>
+                            <p>
+                                Nhà phê bình
+                            </p>
+                        </div>
+                        <div class="img-box">
+                            <img src="~/Content/images/client1.jpg" alt="" class="box-img">
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box">
+                        <div class="detail-box">
+                            <p>
+                                Sách rất hay
+                            </p>
+                            <h6>
+                                Mike Hamell
+                            </h6>
+                            <p>
+                                Nhà phê bình
+                            </p>
+                        </div>
+                        <div class="img-box">
+                            <img src="~/Content/images/client2.jpg" alt="" class="box-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

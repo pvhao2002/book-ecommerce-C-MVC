@@ -1,0 +1,201 @@
+#slogan {
+    width: 50%;
+    float: left;
+    height: 600px;
+
+}
+
+#slogan img {
+    height: 600px;
+    width: 90%;
+}
+
+#login {
+    width: 50%;
+    height: 600px;
+    float: right;
+
+}
+
+#login .login-method-container .gmail-method .button-wrapper .gmail-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+
+}
+
+
+#content #login .login-container .login-form .login-box {
+    height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid white;
+    width: 80px;
+}
+
+#content #login .login-container .login-form .login-box label {
+    display: block;
+}
+
+#content #login .login-container .login-form .login-box .login-box-input {
+    display: block;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 100px;
+
+}
+
+#content #login .login-container .login-form .login-box .login-box-input:focus {
+    outline: none;
+}
+
+#content #login .login-container .login-form .forget-password-container #forget-password-button {
+    width: 200px;
+    margin-left: 400px;
+    margin-right: 50px;
+    color: black;
+    border: none;
+    background: white;
+}
+
+#content #login .login-container .login-form .forget-password-container #forget-password-button:focus {
+    border: none;
+    outline: none;
+}
+
+#content #login .login-container .login-form .login-button-container, .login-method-container {
+    width: 600px;
+    height: 50px;
+    margin: 20px auto 20px auto;
+    /*margin-right: auto;*/
+    /*margin-left: auto;*/
+    /*margin-top: 20px;*/
+    /*margin-bottom: 20px;*/
+    border-radius: 150px;
+
+}
+
+.login-method-container .gmail-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.login-method-container .login-method {
+    margin-bottom: 20px;
+}
+
+#content #login .login-container .login-form .login-button-container button, .login-method-container .login-method button {
+    width: 600px;
+    height: 50px;
+    border-radius: 150px;
+    border: none;
+    background: #28a745;
+    color: white;
+    font-weight: bold;
+}
+
+.login-method-container .login-method #facebook-button {
+    background: #3b5998;
+}
+
+.login-method-container .login-method #gmail-button {
+    background: #e4002b;
+}
+
+#content #login .register-container {
+    margin-top: 150px;
+    float: left;
+    width: 240px;
+    margin-left: 250px;
+
+}
+
+#content #login .register-container p {
+    width: 180px;
+    float: left;
+}
+
+#content #login .register-container a {
+    float: left;
+}
+.hidden-body-background{
+    background: rgba(0, 0, 0, 0.3);
+
+
+}
+#modal  {
+    background: rgba(0, 0, 0, 0.3);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    display: none;
+
+}
+
+#modal-inner {
+    width: 700px;
+    height: 350px;
+    background: white;
+    margin: 0 auto;
+
+}
+
+#modal-text1, #modal-text2 {
+    font-weight: bold;
+    text-align: center;
+}
+
+#modal-text1 {
+    padding-top: 30px;
+    font-size: 25px;
+}
+
+#modal-text2 {
+    font-size: 20px;
+    margin-top: -25px;
+}
+
+#modal-text3 {
+    text-align: center;
+}
+
+#modal #email-container-modal {
+    height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid white;
+    margin-left: 50px;
+}
+
+#modal #email-container-modal label {
+    display: block;
+}
+
+#modal #email-container-modal input {
+    display: block;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 100px;
+}
+
+#modal #email-container-modal input:focus {
+    outline: none;
+}
+
+#get-pass-by-mail {
+    width: 600px;
+    margin: 50px 50px 0 0;
+
+}
+
+#get-pass-by-mail button {
+    width: 600px;
+    height: 50px;
+    border-radius: 150px;
+    border: none;
+    background: #e4002b;
+    color: white;
+    font-weight: bold;
+
+}
+

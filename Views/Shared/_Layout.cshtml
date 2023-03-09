@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="~/Content/images/favicon.png" type="">
+
+    <title> @ViewBag.Title </title>
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="~/Content/css/bootstrap.css" />
+    <!-- Bootstrap icon cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <!--owl slider stylesheet -->
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <!-- nice select  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css"
+          integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ=="
+          crossorigin="anonymous" />
+    <!-- font awesome style -->
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="~/Content/css/responsive.css" rel="stylesheet" />
+    @RenderSection("css", required: false)
+</head>
+
+<body>
+    <div class="hero_area">
+        <div class="bg-box">
+            <img src="~/Content/images/hero-bg.png" alt="ABC Book Shop">
+        </div>
+        <!-- header section strats -->
+        <header class="header_section">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg custom_nav-container ">
+                    <a class="navbar-brand" href="@Url.Action("Index","Home")"> 
+                        <span>
+                            ABC Book Shop
+                        </span>
+                    </a>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav  mx-auto ">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="@Url.Action("Index","Home")">Trang chủ <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Index","ShopGrid")">Sản phẩm</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Về chúng tôi</a>
+                            </li>
+                        </ul>
+                        <div class="user_option">
+                            <a href="@Url.Action("Index","Login")" class="user_link">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </a>
+                            <a class="cart_link" href="#">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            </a>
+                            <form class="form-inline">
+                                <button class="btn  my-2 my-sm-0 nav_search-btn" onclick="return false;" type="submit">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                            <a href="#" class="order_online">
+                                Order Online
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <!-- end header section -->
+
+    @RenderBody()
+
+    <hr />
+    <!-- footer section -->
+    <footer class="footer_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 footer-col">
+                    <div class="footer_contact">
+                        <h4>
+                            Liên hệ
+                        </h4>
+                        <div class="contact_link_box">
+                            <a href="#">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <span>
+                                    Vị trí
+                                </span>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <span>
+                                    +84 123456789
+                                </span>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <span>
+                                    Email: lienhe@abcbook.com.vn
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 footer-col">
+                    <div class="footer_detail">
+                        <a href="" class="footer-logo">
+                            ABC Book
+                        </a>
+                        <p>
+                            Cửa hàng sách số 1 Việt Nam
+                        </p>
+                        <div class="footer_social">
+                            <a href="#">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-pinterest" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 footer-col">
+                    <h4>
+                        Thời gian hoạt động
+                    </h4>
+                    <p>
+                        Mỗi ngày
+                    </p>
+                    <p>
+                        10:00 sáng -10:00 tối
+                    </p>
+                </div>
+            </div>
+            <div class="footer-info">
+                <p>
+                    &copy; <span id="displayYear"></span> All Rights Reserved By
+                    <a href="#">ABC Book</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- footer section -->
+    <!-- jQery -->
+    <script src="~/Content/js/jquery-3.4.1.min.js"></script>
+    <!-- popper js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <!-- bootstrap js -->
+    <script src="~/Content/js/bootstrap.js"></script>
+    <!-- owl slider -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+    </script>
+    <!-- isotope js -->
+    <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+    <!-- nice select -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+    <!-- custom js -->
+    <script src="~/Content/js/custom.js"></script>
+    <script>
+        $('.set-bg').each(function () {
+            var bg = $(this).data('setbg');
+            $(this).css('background-image', 'url(' + bg + ')');
+        });
+    </script>
+</body>
+
+</html>
