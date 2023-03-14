@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿
+@{
+    ViewBag.classInfo = "";
+}
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -34,6 +38,7 @@
     <!-- responsive style -->
     <link href="~/Content/css/responsive.css" rel="stylesheet" />
     <link href="~/Content/css/login.css" rel="stylesheet" />
+    <link href="~/Content/css/register.css" rel="stylesheet" />
     @RenderSection("css", required: false)
 </head>
 
@@ -60,9 +65,21 @@
                         </li>
                     </ul>
                     <div class="user_option">
-                        <a href="@Url.Action("Index","Login")" class="user_link">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                        </a>
+                        @{
+                            var currentUser = Session["user"];
+                            if (currentUser != null)
+                            {
+                                <a href="@Url.Action("Index","ProfileUser")" class="user_link">
+                                    <i class="fa fa-male" aria-hidden="true"></i>
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("Index","Login")" class="user_link">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </a>
+                            }
+                        }
                         <a class="cart_link" href="#">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         </a>
@@ -163,6 +180,9 @@
             </div>
         </div>
     </footer>
+
+
+    @RenderSection("script", false)
     <!-- footer section -->
     <!-- jQery -->
     <script src="~/Content/js/jquery-3.4.1.min.js"></script>

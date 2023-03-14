@@ -1,0 +1,61 @@
+﻿@model OnlineBookShop.Models.books
+@{
+    ViewBag.Title = "Add Book";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+@section cssa{
+    <link rel="stylesheet" href="~/Content/Admin/css/add.css">
+}
+
+
+<section id="content" class="container">
+    <div id="message">
+        @if (ViewBag.Message == "success")
+        {
+            <p class='success'>Sucessfull add new song..</p>
+        }
+        else if (ViewBag.Message == "error")
+        {
+            <p class='error'>Error add new song...</p>
+        }
+    </div>
+    @using (Html.BeginForm("insertBook", "BookAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <h1>Form add information of book</h1>
+        <p>Please type new information.</p>
+        @Html.ValidationSummary(true);
+        <label for="title"><b>Title</b></label>
+        @Html.TextBoxFor(model => model.title, new { placeholder = "Type title of book", required = "required", autofocus = "autofocus" })
+
+        @*<input type="text" placeholder="Type title of book" name="title" required autofocus>*@
+
+        <label for="author"><b>Author</b></label>
+        @Html.TextBoxFor(model => model.author, new { placeholder = "Type author of book", required = "required" })
+        @*<input type="text" placeholder="Type author of book" name="author" required>*@
+
+        <label for="image"><b>Image</b></label>
+        @Html.TextBox("file","", new { type = "file", placeholder = "Please choose image for book", required = "required", accept = "image/*" })
+        @*<input type="file" name="image" placeholder="Please choose image for book" accept="image/*">*@
+
+        <label for="category"><b>Category</b></label>
+        @Html.TextBoxFor(model => model.category, new { placeholder = "Type of category" })
+        @*<input type="text" name="category" placeholder="Type of category">*@
+
+        <label for="decription"><b>Decription</b></label>
+        @Html.TextAreaFor(model => model.decription, new { rows = "4", placeholder = "Type decription about book" })
+        @*<textarea rows="4" placeholder="Type decription about book" name="decription"></textarea>*@
+
+        <label for="price"><b>Price</b></label>
+        @Html.TextBoxFor(model => model.price, new { type = "number" })
+        @*<input type="number" name="price" />*@
+
+        <label for="publicdate"><b>Public Date</b></label>
+        @Html.TextBoxFor(model => model.public_date, new { type = "number" })
+        @*<input type="number" name="publicdate" />*@
+
+        <div class="clearfix">
+            <input type="submit" name="add" value="Add" class="btnAdd">
+        </div>
+    }
+</section>
+

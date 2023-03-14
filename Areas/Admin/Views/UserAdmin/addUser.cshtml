@@ -1,0 +1,43 @@
+﻿@model OnlineBookShop.Models.users
+@{
+    ViewBag.Title = "Add User";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+@section cssa{
+    <link rel="stylesheet" href="~/Content/Admin/css/add.css">
+}
+
+
+<section id="content" class="container">
+    <div id="message">
+        @if (ViewBag.Message == "success")
+        {
+            <p class='success'>Sucessfull add new song..</p>
+        }
+        else if (ViewBag.Message == "error")
+        {
+            <p class='error'>Error add new song...</p>
+        }
+    </div>
+    @using (Html.BeginForm("addUser", "UserAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <h1>Form add information of user</h1>
+        <p>Please type new information.</p>
+        @Html.ValidationSummary(true);
+        <label for="email"><b>Email</b></label>
+        @Html.TextBoxFor(model => model.email, new { placeholder = "Type email of user", required = "required", autofocus = "autofocus" })
+
+
+        <label for="pass"><b>Password</b></label>
+        @Html.TextBoxFor(model => model.pass, new { placeholder = "Type password of user", required = "required" })
+
+        <label for="name"><b>Name</b></label>
+        @Html.TextBoxFor(model => model.name, new { placeholder = "Type name of user", required = "required" })
+
+        <div class="clearfix">
+            <input type="submit" name="add" value="Add" class="btnAdd">
+        </div>
+    }
+</section>
+

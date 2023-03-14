@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+@section cssa{
+    <link rel="stylesheet" href="~/Content/Admin/card.css" type="text/css">
+}
+
+
+<div class="card-item">
+    <div class="item">
+        <h4>User</h4>
+        <p>Number of user: @ViewBag.countUser</p>
+    </div>
+
+    <div class="item">
+        <h4>Book</h4>
+        <p>Number of book: @ViewBag.countBook</p>
+    </div>
+    <div class="item">
+        <h4>Order</h4>
+        <p>Number of order: @ViewBag.countOrder</p>
+    </div>
+    <div class="item">
+        <h4>Order item</h4>
+        <p>Number of order item: @ViewBag.countOrderItem</p>
+    </div>
+    <div class="item">
+        <h4>Revenue </h4>
+        <p>Total price: 0</p>
+    </div>
+</div>
+

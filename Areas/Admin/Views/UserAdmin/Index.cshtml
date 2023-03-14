@@ -1,0 +1,35 @@
+﻿@model IEnumerable<OnlineBookShop.Models.users>
+@{
+    ViewBag.Title = "Management User";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<section id="content" class="container" style="display: flex; flex-direction:column; gap: 8px;">
+    <h2>List Books</h2>
+    @Html.ActionLink("Add", "addUser", "UserAdmin", new { @class = "btnAddd" })
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Pass</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="padding: 8px;">@item.email</td>
+                    <td style="padding: 8px;">@item.pass</td>
+                    <td style="padding: 8px;">@item.name</td>
+                    <td style="padding: 8px;">
+                        @Html.ActionLink("Edit", "updateUser", "UserAdmin", new { id = item.id }, new { @class = "btn btn-success btn-sm" })
+                        @Html.ActionLink("Delete", "deleteUser", "UserAdmin", new { id = item.id }, new { @class = "btn btn-danger btn-sm", @onclick = "return confirm(`Are you sure want to delete this book?`);" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+

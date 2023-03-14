@@ -6,19 +6,17 @@
 
 
 @section css{
-    <link rel="stylesheet" href="~/Content/css/login.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/css/register.css" type="text/css">
 }
 <div id="content">
     <div id="slogan">
         <img src="~/Content/images/signin.jpg" alt="ABC BOOK SHOP">
     </div>
     <div id="login" style="background: #ffffff !important;">
-        @if (@ViewBag.Message != null)
-        {
-            <div style="color: red; text-align: center;">@ViewBag.Message</div>
-        }
+        
         <div class="login-container">
             <h1>Đăng nhập</h1>
+            <div style="color: red; text-align: center;">@ViewBag.Message</div>
             @using (Html.BeginForm("LoginUser", "Login", FormMethod.Post, new { @class = "login-form" }))
             {
                 @Html.ValidationSummary(true);
@@ -28,7 +26,7 @@
                         Email:
                         <input class="login-box-input" id="email" type="text" name="email" size="70"
                                placeholder="Nhập email của bạn">
-                        @ViewData["Loi1"]
+                        <p style="color: red;">@ViewData["Loi1"]</p>
                     </label>
                 </div>
                 <div class="login-box" id="password-container">
@@ -36,11 +34,11 @@
                         Mật khẩu
                         <input class="login-box-input" id="password" type="password" name="password" size="70"
                                placeholder="Nhập password của bạn">
-                        @ViewData["Loi1"]
+                        <p style="color: red;">@ViewData["Loi2"]</p>
                     </label>
                 </div>
                 <div class="forget-password-container">
-                    <button id="forget-password-button" href="#" style="margin-left: 400px; margin-right: 50px;">Bạn quên mật khẩu?</button>
+                    <button id="forget-password-button" href="#" onclick="return false;" style="margin-left: 400px; margin-right: 50px;">Bạn quên mật khẩu?</button>
                 </div>
                 <div class="login-button-container">
                     <button type="submit" class="login-button">
@@ -49,7 +47,7 @@
                 </div>
             }
             @*<form class="login-form" method="post" action="">
-                </form>*@
+        </form>*@
         </div>
         <div class="login-method-container">
             <h5>Hoặc tiếp tục với</h5>
@@ -73,7 +71,7 @@
         </div>
         <div class="register-container">
             <p>Bạn chưa có tài khoản?</p>
-            <a href="#">Đăng ký</a>
+            @Html.ActionLink("Đăng ký", "Index", "SignUp")
         </div>
     </div>
 </div>

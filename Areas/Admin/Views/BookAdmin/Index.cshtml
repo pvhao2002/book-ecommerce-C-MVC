@@ -1,0 +1,53 @@
+﻿@model IEnumerable<OnlineBookShop.Models.books>
+@{
+    ViewBag.Title = "Book";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<section id="content" class="container" style="display: flex; flex-direction:column; gap: 8px;">
+
+    <h2>List Books</h2>
+    @Html.ActionLink("Add", "addBook", "BookAdmin", new { @class = "btnAddd" })
+    @*<a href="admin/bookadmin/addBook" class="btnAddd">Add</a>*@
+    <table border="1">
+        <thead>
+            <tr>
+                <th style="width: 10%;">Title</th>
+                <th style="width: 10%;">Author</th>
+                <th style="width: 30%;">Decription</th>
+                <th style="width: 7%;">Public Date</th>
+                <th style="width: 10%;">Category</th>
+                <th style="width: 6%;">Price</th>
+                <th style="width: 15%;">Image</th>
+                <th style="width: 12%;">Action</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="padding: 8px;">@item.title</td>
+                    <td style="padding: 8px;">@item.author</td>
+                    <td style="padding: 8px;">@item.decription</td>
+                    <td style="padding: 8px;">@item.public_date</td>
+                    <td style="padding: 8px;">@item.category</td>
+                    <td style="padding: 8px;">@item.price</td>
+                    @if (item.image_url == null)
+                    {
+                        <td style="padding: 8px;"><img src="" alt="ABC Book" style="width: 80px; height: 80px;" /></td>
+                    }
+                    else
+                    {
+                        <td style="padding: 8px;"><img src=@Url.Content(item.image_url) alt="ABC Book" style="width: 80px; height: 80px;" /></td>
+                    }
+
+                    <td style="padding: 8px;">
+                        @Html.ActionLink("Edit", "editBook", "BookAdmin", new { id = item.id }, new { @class = "btn btn-success btn-sm" })
+                        @Html.ActionLink("Delete", "deleteBook", "BookAdmin", new { id = item.id }, new { @class = "btn btn-danger btn-sm", @onclick = "return confirm(`Are you sure want to delete this book?`);" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+
