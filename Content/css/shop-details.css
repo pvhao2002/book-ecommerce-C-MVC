@@ -59,8 +59,8 @@ label.star:before {
 }
 
 .user-name {
-    display: inline;
-    float: left;
+    display: flex;
+    align-items: center;
     margin-bottom: 40px;
     margin-left: 10px;
     margin-right: 10px;
@@ -85,9 +85,14 @@ label.star:before {
     height: 200px;
 }
 .some-comments .user-img-container{
-    width: 50px;
+    width: 100%;
     height: 100px;
-    float: left;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+
 }
 .main{
     display: inline-flex;

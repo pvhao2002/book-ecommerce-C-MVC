@@ -1,0 +1,32 @@
+﻿@model OnlineBookShop.Models.users
+@{
+    ViewBag.Title = "Edit user";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+@section cssa{
+    <link rel="stylesheet" href="~/Content/Admin/css/add.css">
+}
+
+<section id="content" class="container">
+    @using (Html.BeginForm("updateUser", "UserAdmin", new { id = Model.id }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <h1>Form add information of user</h1>
+        <p>Please type new information.</p>
+        @Html.ValidationSummary(true);
+        <label for="email"><b>Email</b></label>
+        @Html.TextBoxFor(model => model.email, new { disabled = "disabled" })
+
+        <label for="pass"><b>Password</b></label>
+        @Html.TextBoxFor(model => model.pass, new { placeholder = "Type password of user", required = "required", autofocus = "autofocus" })
+
+        <label for="name"><b>Name</b></label>
+        @Html.TextBoxFor(model => model.name, new { placeholder = "Type name of user", required = "required" })
+
+        <div class="clearfix">
+            <input type="submit" name="edit" value="Edit" class="btnAdd">
+        </div>
+    }
+</section>
+
+
+

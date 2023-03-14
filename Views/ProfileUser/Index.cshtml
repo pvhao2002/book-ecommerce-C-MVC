@@ -1,0 +1,69 @@
+﻿@model OnlineBookShop.Models.users
+@{
+    ViewBag.Title = "Profile User";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+    var user = Session["user"] as OnlineBookShop.Models.users;
+    object input;
+    object input2;
+    if (ViewBag.classInfo == "" || ViewBag.classInfo == null)
+    {
+        input2 = new { @readonly = "readonly", @disabled = "disabled", @type = "submit" };
+        input = new { @readonly = "readonly", @disabled = "disabled" };
+
+        //input = new { };
+        //input2 = new { @type = "submit" };
+    }
+    else
+    {
+        input = new { };
+        input2 = new { @type = "submit" };
+    }
+}
+@section css{
+    <link rel="stylesheet" href="~/Content/css/profileuser.css">
+}
+@if (user != null)
+{
+    <div id="profile">
+        <div class="profile-user">
+            <div class="top">
+                <div class="info">
+                    <img class="img-info" src="~/Content/images/users.png" alt="ABC BOOK">
+                    <p>@user.name</p>
+                </div>
+
+                <div class="btn-profile">
+                    @*<a href="#" class="btnEdit">Chỉnh sửa thông tin</a>*@
+                    @Html.ActionLink("Chỉnh sửa thông tin", "EditInfo", "ProfileUser", null, new { @class = "btnEdit" })
+                    @Html.ActionLink("Đăng xuất", "Logout", "ProfileUser", null, new { @class = "btnLogout" })
+                    @*<a href="#" class="btnLogout">Đăng xuất</a>*@
+                </div>
+            </div>
+            <hr style="height: 2px; border: none; background-color: #000;">
+
+            @using (Html.BeginForm("Update", "ProfileUser", new { id = user.id }, FormMethod.Post, new { @class = "info-form" }))
+            {
+                @Html.DisplayText("Thông tin khách hàng")
+                <label for="Email">
+                    Email:
+                    @Html.TextBox("email",user.email, new { @readonly = "readonly", @disabled = "disabled" })
+                </label>
+                <label for="Password">
+                    Password:
+                    @Html.TextBox("pass",user.pass, input)
+                </label>
+                <label for="Name">
+                    Name:
+                    @Html.TextBox("name", user.name, input)
+                </label>
+                @Html.TextBox("Edit", "edit", input2);
+            }
+        </div>
+    </div>
+}
+else
+{
+    <div style="color: red; font-size: 1.25rem; text-align: center; margin: 40px 0;">
+        Vui lòng đăng nhập để xem thông tin...
+    </div>
+}

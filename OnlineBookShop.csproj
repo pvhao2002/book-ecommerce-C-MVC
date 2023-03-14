@@ -96,6 +96,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Admin\css\about.css" />
+    <Content Include="Content\Admin\css\add.css" />
+    <Content Include="Content\Admin\css\card.css" />
+    <Content Include="Content\Admin\css\login.css" />
+    <Content Include="Content\Admin\css\style.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\elegant-icons.css" />
@@ -105,6 +110,7 @@
     <Content Include="Content\css\login.css" />
     <Content Include="Content\css\nice-select.css" />
     <Content Include="Content\css\owl.carousel.min.css" />
+    <Content Include="Content\css\profileuser.css" />
     <Content Include="Content\css\register.css" />
     <Content Include="Content\css\responsive.css" />
     <Content Include="Content\css\shop-details.css" />
@@ -113,7 +119,6 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\stylecard.css" />
     <Content Include="Content\css\styledetail.css" />
-    <Content Include="Content\css\user-profile.css" />
     <Content Include="Content\fonts\ElegantIcons.svg" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\images\about-img.png" />
@@ -143,10 +148,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BookAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LogoutController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserAdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ProductDetailController.cs" />
+    <Compile Include="Controllers\ProfileUserController.cs" />
     <Compile Include="Controllers\ShopGridController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\SignUpController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -189,15 +202,27 @@
     <Content Include="Content\sass\_shoping-cart.scss" />
     <Content Include="Content\sass\_sidebar.scss" />
     <Content Include="Content\sass\_variable.scss" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayoutPage1.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\LoginAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\BookAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\BookAdmin\addBook.cshtml" />
+    <Content Include="Areas\Admin\Views\BookAdmin\editBook.cshtml" />
+    <Content Include="Areas\Admin\Views\UserAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\UserAdmin\addUser.cshtml" />
+    <Content Include="Areas\Admin\Views\UserAdmin\updateUser.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\User\Login.cshtml" />
-    <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\ShopGrid\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Shared\_Layout1.cshtml" />
+    <Content Include="Views\ProfileUser\Index.cshtml" />
+    <Content Include="Views\SignUp\Index.cshtml" />
+    <Content Include="Views\ProductDetail\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -207,6 +232,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Logout\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

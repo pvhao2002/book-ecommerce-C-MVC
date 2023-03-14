@@ -27,12 +27,16 @@
                     @foreach (var item in Model)
                     {
                         <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="@item.image_url">
+                            <div class="product__item"
+                                 onmouseover="mouseOver(this);"
+                                 onmousemove="mouseMove(this);">
+                                <div class="product__item__pic set-bg" data-setbg="@Url.Content(@item.image_url)">
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">@item.title</a></h6>
-                                    
+                                    <h6>
+                                        @Html.ActionLink(item.title, "productDetail", "ShopGrid", new { id = item.id }, new {area=""});
+                                    </h6>
+
                                     <h5>
                                         @{
                                             var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
@@ -49,3 +53,15 @@
     </div>
 </section>
 <!-- Product Section End -->
+
+<script>
+    function mouseOver(a) {
+        a.style.cursor = 'pointer';
+        a.style.scale = '1.02';
+    }
+
+    function mouseMove(b) {
+        b.style.cursor = 'context-menu';
+        b.style.scale = '1';
+    }
+</script>

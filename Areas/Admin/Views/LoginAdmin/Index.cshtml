@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Aguafina+Script" />
+    <link rel="stylesheet" href="~/Content/Admin/css/login.css">
+</head>
+
+<body>
+    <div class="login_form">
+        <div class="details">
+            <div style="color: red; text-align: center;">@ViewBag.Message</div>
+            <div class="welcome">Welcome</div>
+            @using (Html.BeginForm("adminLogin", "LoginAdmin", FormMethod.Post))
+            {
+                <div class="wrap">
+                    <label>Email</label>
+                    <input type="email" name="email" class="input">
+                </div>
+                <div class="wrap">
+                    <label>Password</label>
+                    <input type="password" name="pass" class="input">
+                </div>
+                <input type="submit" name="signin" class="button" value="Sign in!" />
+            }
+        </div>
+        <img class="fox" src="~/Content/images/signin.jpg" />
+        <div class="details-two">
+            <h1 class="back">Welcome back!</h1>
+            <p class="log">Log in and use the opportunities offered by our portal.</p>
+            <br>
+            <h2 class="acc">You can management ABC Book System...</h2>
+        </div>
+
+    </div>
+</body>
+
+</html>
+

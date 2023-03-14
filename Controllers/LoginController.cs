@@ -19,32 +19,41 @@ namespace OnlineBookShop.Controllers
         [HttpPost]
         public ActionResult LoginUser(FormCollection collection)
         {
-            var email = collection["email"];
-            var password = collection["password"];
-            if (string.IsNullOrEmpty(email))
+            var user = Session["user"];
+            if (user == null)
             {
-                ViewData["Loi1"] = "Phải nhập tên đăng nhập";
-            }
-            else if (string.IsNullOrEmpty(password))
-            {
-                ViewData["Loi2"] = "Phải nhập mật khẩu";
-            }
-            else
-            {
-                // role: true is user, false is admin
-                users users = new DBContextBook().users.SingleOrDefault(ele =>
-                    ele.email == email && ele.pass == password && ele.role == true);
-                if (users == null)
+                var email = collection["email"];
+                var password = collection["password"];
+                if (string.IsNullOrEmpty(email))
                 {
-                    ViewBag.Message = "Tên đăng nhập hoặc mật khẩu không đúng";
+                    ViewData["Loi1"] = "Phải nhập tên đăng nhập";
+                }
+                if (string.IsNullOrEmpty(password))
+                {
+                    ViewData["Loi2"] = "Phải nhập mật khẩu";
                 }
                 else
                 {
-                    Session["TaiKhoan"] = users;
-                    return RedirectToAction("Index", "Home");
+                    // role: true is user, false is admin
+                    users users = new DBContextBook().users.SingleOrDefault(ele =>
+                        ele.email == email && ele.pass == password && ele.role == true);
+                    if (users == null)
+                    {
+                        ViewBag.Message = "Tên đăng nhập hoặc mật khẩu không đúng";
+                    }
+                    else
+                    {
+                        Session["user"] = users;
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
+                //ViewBag.Message = email.ToString() + "," + password.ToString();
+                return View("Index");
             }
-            return View();
+            else
+            {
+                return RedirectToAction("Index", "ProfileUser");
+            }
         }
     }
 }

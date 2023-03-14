@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+@section css{
+    <link rel="stylesheet" href="~/Content/css/register.css" type="text/css">
+}
+<div id="content">
+    <div id="slogan">
+        <img src="~/Content/images/signin.jpg">
+    </div>
+    <div id="register">
+        <div class="register-container">
+            <h1>Tạo tài khoản</h1>
+            <div style="color: red;">@ViewBag.Message</div>
+            @using (Html.BeginForm("signUp", "SignUp", FormMethod.Post, new { @class = "register-form" }))
+            {
+                <div class="register-box" id="name-container">
+                    <label for="name">
+                        Họ tên:
+                        <input class="register-box-input" name="name" type="text" size="60"
+                               placeholder="Nhập họ tên của bạn" required>
+                    </label>
+                </div>
+
+                <div class="register-box" id="email-container">
+                    <label for="email">
+                        Email:
+                        <input class="register-box-input" name="email" size="60" type="text"
+                               placeholder="Nhập email của bạn" required>
+                    </label>
+                </div>
+                <div class="register-box" id="password-container">
+                    <label for="password">
+                        Mật khẩu:
+                        <input class="register-box-input" name="password" size="60" type="password"
+                               placeholder="Nhập mật khẩu của bạn" required>
+                    </label>
+                </div>
+
+                <input type="checkbox" id="term1" name="term1" onclick="change()">
+                <label for="term1">Tôi đã đồng ý với các <a id="term1-link" href="#" onclick="return false;"><u>Chính Sách Hoạt Động của NLFC Việt Nam</u></a></label>
+                <p id="agreement-1">Vui lòng chọn Đồng Ý với các Chính Sách Hoạt Động của NLFC</p>
+                <div class="register-button-container">
+                    <button type="submit" class="register-button" style="background-color: gray;" disabled id="btnRegisterUser">
+                        Tạo tài khoản
+                    </button>
+                </div>
+            }
+        </div>
+
+        <div class="login-container">
+            <p>Bạn đã có tài khoản?</p>
+            @Html.ActionLink("Đăng nhập", "Index", "Login")
+        </div>
+    </div>
+</div>
+
+<script>
+    function change() {
+        const checkBox = document.getElementById('term1');
+        const btnSignup = document.getElementById("btnRegisterUser");
+        const argree = document.getElementById('agreement-1');
+        if (checkBox.checked) {
+            btnSignup.style.backgroundColor = "red";
+            btnSignup.removeAttribute('disabled')
+            argree.style.color = "green";
+        } else {
+            btnSignup.style.backgroundColor = "gray";
+            btnSignup.setAttribute('disabled', 'disabled');
+            argree.style.color = "red";
+        }
+    }
+</script>

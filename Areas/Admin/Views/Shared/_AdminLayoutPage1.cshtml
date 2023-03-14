@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/Admin/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>@ViewBag.Title</title>
+    @RenderSection("cssa", false)
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- Header -->
+        <header>
+            <div class="inner-header container">
+                @*<a href="admin/home" id="logo">ABC Book</a>*@
+                @Html.ActionLink("ABC Book", "Index", "HomeAdmin", null, new { @id = "logo" })
+                <nav>
+                    <ul id="main-menu">
+                        <li>
+                            @Html.ActionLink("Book", "Index", "BookAdmin")
+                            @*<a href="admin/bookadmin">Book</a>*@
+                        </li>
+                        <li>
+                            @*<a href="admin/user">User</a>*@
+                            @Html.ActionLink("User", "Index", "UserAdmin")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Logout", "Index", "Logout")
+                            @*<a href="admin/logout">Logout</a>*@
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <!-- End Header -->
+        <!-- Banner Image -->
+        <div id="banner"></div>
+        <!-- End Banner -->
+        <!-- Form  information -->
+        @RenderBody()
+        <!-- End form  information -->
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2023 By ABC Book</p>
+        </footer>
+        <!-- End footer -->
+    </div>
+</body>
+
+</html>
